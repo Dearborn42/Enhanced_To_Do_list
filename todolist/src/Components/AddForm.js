@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import "../Styles/main.css"
 
 const AddForm = ({updateFunc}) => {
     const [formData, setFormData] = useState({name: '', desc: '', category: ''});
@@ -14,23 +15,20 @@ const AddForm = ({updateFunc}) => {
     setFormData({ name: '', desc: '', category: '' });
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="btn-contianer">
       <label>
         Name:
         <input type="text" name="name" value={formData.name} onChange={handleChange} />
       </label>
-      <br />
       <label>
         Description:
         <input type="text" name="desc" value={formData.desc} onChange={handleChange} />
       </label>
-      <br />
       <label>
         Category:
         <input type="text" name="category" value={formData.category} onChange={handleChange} />
       </label>
-      <br />
-      <button type="submit">Submit</button>
+      <button className="filter-btn" type="submit">Submit</button>
     </form>
   )
 }

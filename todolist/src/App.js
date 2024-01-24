@@ -1,4 +1,4 @@
-import './App.css';
+import "./Styles/main.css"
 import { useReducer } from 'react';
 import tasks from './Utils/data.js';
 import List from './Components/List.jsx';
@@ -16,19 +16,23 @@ function reducer(state, action){
     return state.map((obj) =>
       obj.name === name ? { ...obj, [field]: value } : obj
     );
-
   }
 }
 
 function App() {
   const [state, dispatch] = useReducer(reducer, tasks);
   return (
-    <div className="App">
-      <header className="App-header">
+     <main>
+      <section className="section">
+        <div className="title">
+          <h2>To-do List</h2>
+          <div className="underline"></div>
+        </div>
         <AddForm updateFunc={dispatch} />
         <List data={state} updateFunc={dispatch} />
-      </header>
-    </div>
+      </section>
+    </main>
+        
   );
 }
 
