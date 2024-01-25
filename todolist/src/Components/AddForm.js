@@ -28,7 +28,7 @@ const AddForm = ({updateFunc}) => {
         Category:
         <input type="text" name="category" value={formData.category} onChange={handleChange} />
       </label>
-      <button className="filter-btn" type="submit">Submit</button>
+      <input type="submit" id='do_login' title="Add" value="ADD"/>
     </form>
   )
 }

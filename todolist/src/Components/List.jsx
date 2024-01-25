@@ -7,41 +7,93 @@ const List = ({ data, updateFunc }) => {
             updateFunc({type: "edit", name, field, value})
     }
   return (
+    <>
     <div className="menu">
-      {data.map((x, index) => (
-        <article key={index} className="menu-item">
+      {data.map((x) => (
+        <>
         {edit ? (
-            <div className="item-info">
-                <h4 className="item-text">Name: {x.name}</h4>
-                <p className="item-text">Description: {x.desc}</p>
-                <p className="item-text">Category: {x.category}</p>
-            </div>) : 
-        (<div className="item-info">
-            <input 
-                className="item-text" 
-                placeholder={x.name} 
-                onBlur={(e) => update(x.name, "name", e.target.value)}
-            />
-            <br />
-            <input 
-                className="item-text" 
-                placeholder={x.desc} 
-                onBlur={(e) => update(x.name, "desc", e.target.value)}
-            />
-            <br />
-            <input 
-                className="item-text" 
-                placeholder={x.category} 
-                onBlur={(e) => update(x.name, "category", e.target.value)}
-            />
-            <br />
-        </div>
+            <div className='box-login'>
+                <div className='fieldset-body' id='login_form'>
+                    <p className='field'>
+                        <label htmlFor='user'>Name</label>
+                        <h4 className="item-text">{x.name}</h4>
+                        <span id='valida' className='i i-warning'></span>
+                    </p>
+                    <p className='field'>
+                        <label htmlFor='pass'>Description:</label>
+                        <p className="item-text">{x.desc}</p>
+                        <span id='valida' className='i i-close'></span>
+                    </p>
+                    <p className='field'>
+                        <label htmlFor='pass'>Category:</label>
+                        <p className="item-text">{x.category}</p>
+                        <span id='valida' className='i i-close'></span>
+                    </p>
+                    <input 
+                        type='submit' 
+                        id='do_login' 
+                        onClick={() => updateFunc({type: "remove", name: x.name})} 
+                        title='Remove' 
+                        value='REMOVE'
+                    />
+                </div>
+            </div>
+        ) : 
+        (
+        <div className='box-login'>
+                <div className='fieldset-body' id='login_form'>
+                    <p className='field'>
+                    <label htmlFor='user'>Name</label>
+                    <input 
+                        type='text'
+                        title='Name' 
+                        placeholder={x.name} 
+                        onBlur={(e) => update(x.name, "name", e.target.value)}
+                    />
+                    <span id='valida' className='i i-warning'></span>
+                    </p>
+                    <p className='field'>
+                    <label htmlFor='pass'>Description:</label>
+                    <input 
+                        type='text' 
+                        title='Description'  
+                        placeholder={x.desc} 
+                        onBlur={(e) => update(x.name, "desc", e.target.value)}
+                    />
+                    <span id='valida' className='i i-close'></span>
+                    </p>
+                    <p className='field'>
+                    <label htmlFor='pass'>Category:</label>
+                    <input 
+                        type='text'
+                        title='Category' 
+                        placeholder={x.category} 
+                        onBlur={(e) => update(x.name, "category", e.target.value)}
+                    />
+                    <span id='valida' className='i i-close'></span>
+                    </p>
+                    <input 
+                        type='submit' 
+                        id='do_login' 
+                        onClick={() => updateFunc({type: "remove", name: x.name})} 
+                        title='Remove' 
+                        value='REMOVE'
+                    />
+                </div>
+            </div>
           )}
-          <button onClick={() => updateFunc({type: "remove", name: x.name})}>Remove</button>
-        </article>
+        </>
       ))}
-      <button className="btn" onClick={() => setEdit((prev) => !prev)}>Edit</button>
     </div>
+    <input 
+            type='submit' 
+            id='do_login' 
+            onClick={() => setEdit((prev) => !prev)}
+            title='Edit' 
+            value='EDIT'
+            className='Edit-btn'
+    />
+    </>
   );
 };
 
