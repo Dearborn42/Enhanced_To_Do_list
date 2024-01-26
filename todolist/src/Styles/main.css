@@ -316,13 +316,25 @@ h4 {
 
 .btn-container {
   margin-bottom: 4rem;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+.flex-btn{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+  font-weight: 900;
+}
+.selected{
+  border-bottom: 2px solid #c59d5f;
+}
 
 .filter-btn{
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #c59d5f;
     border-radius: 0;
@@ -384,6 +396,7 @@ button:focus {
 
 .fieldset-body {
   display: table;
+  width: 100%;
 }
 
 .fieldset-body p {
